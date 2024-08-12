@@ -18,46 +18,31 @@ libra move framework release
 All dev work can be achieved using `libra-framework` repo. We'll need to build some executables from diem and install them on your dev machine.
 
 ### Install `libra`
-#### If you are mainly working on Move tests.
+##### all tests depend on the `move` tools available in libra, plus the node software
 
 - You must install `libra` cli tool to your PATH.
 
 ```
-# in this repo
+# in the libra-framework repo clone
 cargo build --release -p libra
 
 
-# copy to a dir in your PATH
+# copy to a dir in your PATH, .cargo is same across unix platforms
 cp ./target/release/libra ~/.cargo/bin
 # you may need to make it executable
 chmod +x ~/.cargo/bin/libra
-```
-
-### Install `diem-node`
-#### If you are also running Rust tests and Smoke Tests.
-
-- You need a standalone `diem-node` binary before working on `libra-framework`
-- compile `diem-node` to `$HOME/.cargo/bin`
-- Note that the `--profile release` compilation profile makes for much smaller binaries (e.g. `diem-node` goes from about 2GB to 30MB).
 
 ```
-export RUST_DIEM_COIN_MODULE="libra_coin"
-export RUST_DIEM_COIN_NAME="LibraCoin"
 
-cargo build --profile release -p diem-node
+IMPORTANT: smoke tests depend on some environment variables.
 
-# copy to a dir in your PATH
-cp ./target/release/diem-node ~/.cargo/bin
-# make it executable
-chmod +x ~/.cargo/bin/diem-node
-```
-
-- export these env vars in your dev env, `~/.bashrc` or `~/.zshrc`
+Export these env vars in your dev env, `~/.bashrc` or `~/.zshrc` :
 
 ```
 export RUST_MIN_STACK=104857600
 export DIEM_FORGE_NODE_BIN_PATH="$HOME/.cargo/bin/diem-node"
 ```
+
 
 
 
@@ -75,6 +60,10 @@ optionally with filters:
 
 ```
 cd ./framework
+libra move framework release
+
+# alternatively you can use the git head's compiler with
+cd ./framework
 cargo run release
 
 ```
@@ -85,15 +74,16 @@ Note for smoke tests: you must regenerate the .mrb file EVERYTIME YOU MAKE A CHA
 
 ## Running smoke tests
 
-Do it yourself:
-Make sure you are in the root of the project.
-
 Note: there is an issue with the rust default stack size for tests which involve compiling, and then starting a local testnet
 
 ```
-cd ./smoke-tests
+
+# if you haven't exported this vars in your ~/.bashrc, do it now:
 export RUST_MIN_STACK=104857600
-export DIEM_FORGE_NODE_BIN_PATH="$HOME/.cargo/bin/diem-node"
+export DIEM_FORGE_NODE_BIN_PATH="$HOME/.cargo/bin/libra"
+
+# run the smoke tests
+cd ./smoke-tests
 cargo test
 ```
 
