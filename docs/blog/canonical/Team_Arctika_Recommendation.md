@@ -1,4 +1,4 @@
-**To survive, the 0L Network needs to solve two problems. We need**: 
+**To survive, the 0L Network needs to solve two problems. We need**:
 1. Abundant capital for security, and
 2. Abundant capital for recruiting talent.
 
@@ -90,7 +90,7 @@ We think this allocation, with abundant amounts for future capital, which honors
 
  
 
-*\*\*Note the Arctika Report was originally published to the 0L Network Discord on 23 May, 2023\. See, <https://discord.com/channels/833074824447655976/910315033672704090/1110679498288005130>*
+*\*\*Note the Arctika Report was originally published to the 0L Network Discord on 23 May, 2023\. See, https://discord.com/channels/833074824447655976/910315033672704090/1110679498288005130*
 
 \=\=\=\=\=\=\=\=\=\=\=end notes\=\=\=\=\=\=\=\=\=\=\=\=
 
